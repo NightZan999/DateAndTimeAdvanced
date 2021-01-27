@@ -1,0 +1,20 @@
+  
+{
+    "name": "DateAndTimeAdvanced",
+    "version": "1.0.0",
+    "description": "DateAndTimeAdvanced, PHP API to handle complex timestamps for PHP users",
+    "main": "install.php",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "start.sh"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/NightZan999/DateAndTimeAdvanced.git"
+    },
+    "author": "NightZan999",
+    "license": "GNU",
+    "bugs": {
+      "url": "https://github.com/NightZan999/DateAndTimeAdvanced/issues"
+    }
+}

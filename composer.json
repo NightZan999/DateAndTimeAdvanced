@@ -1,0 +1,18 @@
+{
+    "name" :"nightzan999/date-and-time-advanced",
+    "description": "This takes PHP's DateAndTime capabilties to much more than what people thought it could be! You can create complex things like a timestamp and more with this!",
+    "keywords": ["Date", "Time", "Time Advanced"],
+    "homepage" :"https://github.com/NightZan999/DateAndTimeAdvanced",
+    "license" :"MIT",
+    "authors": [
+        {
+            "name" : "NightZan999",
+            "email" : "nigamanth.srivatsan@gmail.com",
+            "homepage" :"https://nightzan999.github.io",
+            "role" : "Owner and Developer"
+        }
+    ],
+    "require" : {
+        "php" : ">=7.4"
+    }
+}

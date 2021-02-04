@@ -1,5 +1,4 @@
 <?php
-namespace DateAndTime;
 class DateAndTime {
     public function __construct($timezone, $format) {
         $this->timezone = $timezone;
@@ -24,7 +23,7 @@ class DateAndTime {
         $this->timezone = $timezone;
     }
 
-    public static function FindTime(string $timezone, string $format) : string {
+    public function FindTime(string $timezone = null, string $format = null) : string {
         if ($timezone == null) {
             $timezone = $this->timezone; 
         }

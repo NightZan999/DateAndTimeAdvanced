@@ -1,7 +1,10 @@
 <?php
 declare(strict_types=1);
 //import files
-require("src/logger.php");
+require("./src/Models/runtime.php"); 
+require("./src/Models/db.php");
+require("./src/Models/logging/customLogger.php"); 
+require("./src/Models/requirements.php"); 
 //app variables
 const APP_NAME = "DateAndTimeAdvanced"; 
 const APP_VERSION = "1.0.0"; 
@@ -12,35 +15,42 @@ const PHP_VERSION_RECOMMENDED = '7.4';
 //config
 const host = null; 
 const port = null; 
-//now consider php settings
-const phpSettings = [
-    "logger" => true, 
-    "display_errors" => true, 
-    "audit_logs" => true, 
-    'default_charset' => 'utf-8'
-];
 
-const phpExtensions = [
-    'json',
-    'PDO_MYSQL',
-    'session',
-];
+//initialize the server and bring it all together
+function init() : bool {
+    //now consider php settings
+    $phpSettings = [
+        "logger" => true, 
+        "display_errors" => true, 
+        "audit_logs" => true, 
+        'default_charset' => 'utf-8'
+    ];
 
-class Requirements {
-    public function __construct(array $INSTALLED_APPS, array $EXTENSIONS)
-    {
-        $this->INSTALLED_APPS = $INSTALLED_APPS; 
-        $this->EXTENSIONS = $EXTENSIONS; 
-        $this->requirements = [
-            "json", "PDO_MYSQL", "session"
-        ];  
-        return true; 
-    }
+    $phpExtensions = [
+        'json',
+        'MYSQL',
+        'session',
+    ];
+
+    $phpDependencies = [
+        "php>=7.4", 
+    ];
+
+    $phpSettings = [
+        'error_reporting' => E_ALL ^ E_NOTICE,
+        'log_errors' => true,
+        'display_errors' => true,
+        'error_log' => __DIR__ . '/installer.error.log',
+        'time_limit' => 0,
+        'default_charset' => 'utf-8',
+        'LC_ALL' => 'en_US.UTF8',
+    ];
+
+    $logger = new CustomLogger("myLogger"); 
+    $runtime = new Runtime($logger); 
+    $runtime->setSettings($phpSettings); 
+    $runtime->execute(); 
+    $requirements = new Requirements($phpExtensions, $phpDependencies);
+    $requirements->reqChecks(); 
+    return true;
 }
-//init the server
-function initialize_server() {
-    return; 
-}
-
-const logger = new Logger($_SERVER); 
-const database = new Database($_SERVER, host, port); 

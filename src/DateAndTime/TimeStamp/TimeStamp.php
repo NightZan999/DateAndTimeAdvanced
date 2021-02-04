@@ -1,6 +1,5 @@
 <?php
 require("../DateAndTime.php"); 
-
 class TimeStamp extends DateAndTime {
     private $timestamp;
     private $durationAdd;

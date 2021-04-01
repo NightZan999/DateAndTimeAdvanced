@@ -29,9 +29,7 @@ require 'nightzan999/filename.php'; // worst way to do it but still works D:
 For more information read stuff at [packagist](https://packagist.org/)'s docs and website
 
 ## Contributing
-For major changes (making more classes, way server handles requests or something big) please make an issue first and get approved. Then make a pull request, which **may not be taken.** For minor changes simply create a pull request and I will look into it!
-
-We are still trying to create API, so I will take all the help I can get!
+This thing is archived and I won't be accepting any more contributions. Make sure you follow the license at all costs. 
 
 ## Setup
 Installation with composer can be seen in composer.json! But otherwise install curl and normally install dependencies (that's how I started lol). 
